@@ -1,42 +1,32 @@
-# Delivery Route Optimizer – Traveling Salesman Problem (Los Angeles)
+# Delivery Route Optimization with EDA (Los Angeles TSP)
 
 ## Overview
-This project demonstrates how to optimize delivery routes for a set of locations in Los Angeles using the Traveling Salesman Problem (TSP) framework.  
-By minimizing total travel distance, the solution aims to reduce operational costs, improve delivery efficiency, and lower environmental impact.
+This project demonstrates a practical solution to the **Traveling Salesman Problem (TSP)** using synthetic delivery data for Los Angeles. It applies the Nearest Neighbor heuristic followed by 2-opt optimization to minimize total travel distance, saving time, fuel, and emissions. The project includes an exploratory data analysis (EDA) stage and interactive mapping for route visualization.
 
-The optimization is performed using:
-- Haversine distance for geographic calculations
-- Nearest Neighbor heuristic for initial route generation
-- 2-opt local search for route refinement
-- Interactive mapping using Folium
+## Key Features
+- **Synthetic Data Generation**: Creates delivery stops around a central depot in Los Angeles.
+- **Exploratory Data Analysis (EDA)**:
+  - Maps delivery stops on an interactive Folium map.
+  - Displays distance distribution between stops.
+- **Route Optimization**:
+  - Baseline route via Nearest Neighbor heuristic.
+  - Route improvement using 2-opt algorithm.
+- **Performance Metrics**:
+  - Travel distance reduction.
+  - Estimated time, fuel, and CO₂ savings.
 
-## Problem Statement
-Last-mile delivery is one of the most resource-intensive parts of logistics.  
-Given a central depot and multiple delivery locations:
-1. Start at the depot
-2. Visit each location exactly once
-3. Return to the depot
-4. Minimize the total travel distance
+## Results Summary
+- **Number of stops (including depot)**: 12  
+- **Nearest Neighbor distance**: 66.16 km (~2.21 h @ 30 km/h)  
+- **Optimized (NN + 2-opt) distance**: 58.91 km (~1.96 h @ 30 km/h)  
+- **Improvement over NN**: **10.96%** (7.25 km saved)  
 
-## Features
-- Synthetic Data Generation: Creates delivery points within a specified radius of Los Angeles.
-- Distance Calculation: Uses the Haversine formula to compute great-circle distances.
-- Route Optimization: Nearest Neighbor + 2-opt improvement.
-- Visualization:
-  - Scatter map of delivery points
-  - Histogram of pairwise distances
-  - Interactive optimized route map (Folium)
-- Impact Estimation:
-  - Percentage distance improvement
-  - Fuel, cost, and CO₂ savings estimation
+**Estimated daily impact (per vehicle)**:
+- Fuel saved: 0.60 L/day  
+- Cost saved: $0.76/day  
+- CO₂ reduction: 1.40 kg/day  
 
-## Project Structure
-.
-├── tsp_los_angeles_notebook.ipynb   # Main Jupyter notebook  
-├── out/  
-│   ├── tsp_map_LA.html              # Interactive route map output  
-│   └── tsp_results_summary.csv      # Summary metrics (optional)  
-└── README.md                        # Project documentation  
+Assumptions: average speed = 30 km/h, fuel efficiency = 12 km/L, fuel price = $1.27/L, CO₂ = 2.31 kg/L.
 
 ## Installation
 ### Prerequisites
@@ -50,7 +40,7 @@ pip install pandas numpy folium matplotlib geopy
 
 ## Usage
 1. Clone this repository or download the notebook file.
-2. Open `tsp_los_angeles_notebook.ipynb` in Jupyter.
+2. Open `TSP_with_EDA.ipynb` in Jupyter.
 3. Run all cells to:
    - Generate synthetic delivery locations
    - Perform exploratory data analysis
@@ -58,11 +48,6 @@ pip install pandas numpy folium matplotlib geopy
    - Visualize and save the results
 4. View the interactive HTML map in the `out/` directory.
 
-## Example Output
-- Optimized Distance: ~XX km  
-- Improvement over Nearest Neighbor: ~YY% shorter route  
-- Estimated Fuel Savings: ~Z liters/day  
-- Estimated CO₂ Reduction: ~W kg/day
 
 ## Future Improvements
 - Incorporate real-world traffic data via APIs (Google Maps, OpenStreetMap)
