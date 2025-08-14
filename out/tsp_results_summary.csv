@@ -1,0 +1,2 @@
+stops,nn_distance_km,opt_distance_km,distance_saved_km,improvement_pct,time_nn_hr,time_opt_hr,fuel_saved_l,cost_saved_usd,co2_saved_kg,avg_speed_kmh,fuel_efficiency_km_per_l,fuel_price_per_l,co2_per_l_kg
+12,66.16421526701888,58.91495583978433,7.2492594272345485,10.956465512329766,2.2054738422339626,1.9638318613261443,0.6041049522695457,0.7551311903369322,1.3954824397426506,30.0,12,1.25,2.31
